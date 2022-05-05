@@ -5,13 +5,16 @@ import styled from 'styled-components';
 import { COLORS } from '../../constants';
 import VisuallyHidden from '../VisuallyHidden';
 
+// TODO map sizes to heights etc and generally tidy up
+
 const ProgressBar = ({ value, size }) => {
-  return <Container><Progress value={value} /></Container>
+  return <Container size={size}><Progress value={value} /></Container>
 };
 
 const Container = styled.div`
   background-color: ${COLORS.transparentGray15};
-  border-radius: 8px;
+  // not working...
+  border-radius: ${props => props.size === 'large' ? '8px' : '4px'};
   box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
   height: 24px;
   width: 370px;
